@@ -54,6 +54,7 @@ class HomeHeader extends Component {
       filteredList: filtered,
     });
   };
+
   changeLanguage = (language) => {
     this.props.changeLanguageAppRedux(language);
     // fire redux event : actions
@@ -72,7 +73,7 @@ class HomeHeader extends Component {
           className="navbar navbar-expand-lg navbar-light sticky-top shadow-sm"
           style={{ backgroundColor: "#edfffa" }}
         >
-          <div className="container d-flex justify-content-between align-items-center">
+          <div className="container d-flex justify-content-between align-items-center p-3">
             {/* Logo và nút toggle */}
             <div className="item-logo d-flex align-items-center">
               <button
@@ -85,7 +86,7 @@ class HomeHeader extends Component {
                 aria-label="Toggle navigation"
               >
                 <span className="icon-menu">
-                  <i class="fa-solid fa-bars"></i>
+                  <i className="fa-solid fa-bars"></i>
                 </span>
               </button>
               <Link

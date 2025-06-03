@@ -7,7 +7,7 @@ import "./HomeFooter.scss";
 class HomeFooter extends Component {
   render() {
     return (
-      <footer>
+      <footer className="mt-auto">
         <div className="footer-top section">
           <div className="container">
             <div className="footer-grid row">

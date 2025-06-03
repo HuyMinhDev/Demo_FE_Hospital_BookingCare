@@ -179,8 +179,8 @@ class BookingModal extends Component {
       reason: "",
       birthday: "",
       selectedGender: "",
-      doctorId: "",
-      timeType: "",
+      // doctorId: "",
+      // timeType: "",
     });
   };
   handleOnchangeInput = (event, id) => {
@@ -224,6 +224,8 @@ class BookingModal extends Component {
       timeString: timeString,
       doctorName: doctorName,
     });
+    console.log("this.state.timeType:", this.state.timeType);
+    console.log("this.state.doctorId:", this.state.doctorId);
     this.setState({
       isShowLoading: false,
     });
@@ -243,6 +245,7 @@ class BookingModal extends Component {
           })
         );
       } else {
+        console.log("Tôi đang bị lỗi: ", res.errCode);
         toast.error(
           this.props.intl.formatMessage({
             id: "patient.booking-modal.toastError",

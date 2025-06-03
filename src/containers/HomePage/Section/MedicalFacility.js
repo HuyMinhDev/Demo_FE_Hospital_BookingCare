@@ -22,6 +22,15 @@ class MedicalFacility extends Component {
       });
     }
   }
+  // hexToUtf8 = (hex) => {
+  //   if (!hex) return "";
+  //   hex = hex.startsWith("0x") ? hex.slice(2) : hex;
+  //   let str = "";
+  //   for (let i = 0; i < hex.length; i += 2) {
+  //     str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+  //   }
+  //   return str;
+  // };
   handleViewDetailClinic = (clinic) => {
     if (this.props.history) {
       this.props.history.push(`/detail-clinic/${clinic.id}`);
@@ -64,6 +73,9 @@ class MedicalFacility extends Component {
                             className="bg-image section-medical-facility"
                             style={{
                               backgroundImage: `url(${item.image})`,
+                              // backgroundImage: `url(${this.hexToUtf8(
+                              //   item.image
+                              // )})`,
                             }}
                           />
 

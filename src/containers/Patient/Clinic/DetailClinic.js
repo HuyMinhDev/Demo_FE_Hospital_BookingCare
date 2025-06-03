@@ -115,7 +115,7 @@ class DetailClinic extends Component {
                 <div className="clinic-titlename">
                   <h2>{dataDetailClinic.name}</h2>
                   <p>
-                    <i class="fa fa-map-marker"></i>
+                    <i className="fa fa-map-marker"></i>
                     {dataDetailClinic.address}
                   </p>
                 </div>
