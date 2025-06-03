@@ -56,11 +56,6 @@ class DetailDoctor extends Component {
 
     let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
 
-    // let currentURL =
-    //   process.env.REACT_APP_IS_LOCALHOST === "1"
-    //     ? "https://eric-restaurant-bot-tv.herokuapp.com/"
-    //     : window.location.href;
-
     return (
       <>
         <HomeHeader isShowBanner={false} />
@@ -113,7 +108,7 @@ class DetailDoctor extends Component {
           </div>
           <div className="comment-doctor">
             <div className="comment-doctor">
-              <Comment numPost={5} dataHref={currentURL1} width={"100%"} />
+              <Comment numPost={5} dataHref={currentURL} width={"100%"} />
             </div>
           </div>
         </div>
