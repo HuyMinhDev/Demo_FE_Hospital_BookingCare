@@ -113,7 +113,7 @@ class DetailDoctor extends Component {
           </div>
           <div className="comment-doctor">
             <div className="comment-doctor">
-              <Comment numPost={5} dataHref={currentURL} width={"100%"} />
+              <Comment numPost={5} dataHref={currentURL1} width={"100%"} />
             </div>
           </div>
         </div>
