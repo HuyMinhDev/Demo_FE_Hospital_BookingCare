@@ -36,7 +36,7 @@ class BackToTop extends Component {
     return (
       this.state.isVisible && (
         <div className="back-to-top" onClick={this.scrollToTop}>
-          ↑
+          ↑ Test
         </div>
       )
     );
