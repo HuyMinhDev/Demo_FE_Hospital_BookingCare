@@ -10,6 +10,7 @@ import LikeAndShare from "../socialPlugin/LikeAndShare";
 import Comment from "../socialPlugin/Comment";
 import LoadingOverlay from "react-loading-overlay";
 import HomeFooter from "../../HomePage/HomeFooter";
+
 class DetailDoctor extends Component {
   constructor(props) {
     super(props);
@@ -44,27 +45,22 @@ class DetailDoctor extends Component {
       }
     }
   }
+
   componentDidUpdate(prevProps, prevState, snapshot) {}
+
   render() {
     let { language } = this.props;
     let { detailDoctor } = this.state;
     let nameVi = "";
     let nameEn = "";
+
     if (detailDoctor && detailDoctor.positionData) {
-      nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.lastName} ${detailDoctor.firstName} `;
+      nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.lastName} ${detailDoctor.firstName}`;
       nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.firstName} ${detailDoctor.lastName}`;
     }
-    let currentURL1 =
-      process.env.REACT_APP_IS_LOCALHOST === "1"
-        ? "https://www.facebook.com/permalink.php?story_fbid=pfbid0Y47aFGTS9q8AMKSF45kWNZezoMid26DtK3DZhgvRJFR1BHH747TK9zLAmhirfLcMl&id=61557876208398&__cft__[0]=AZXidQRNaJwmjV5VlZyG4R3VkoUqWVYr25NspR4UXHTsAmdktObppmiD_5oZxldnqneiiXyW4-gDsnPb0FRGr6hM5JxPx8dPOdjPhJDPA1r0H5xreTVBd7CBvbAhlm_16c_OlfG9QfYx1w7nkd6teKl4Z6M5EAaqqZ-jimi9pnlvaAT7eJJ8Z_vRjlsadCcqLfUkzvB4GufYaH5U3l5Y_zY2ae3rWClK0ubQeHIA9DdiW85V1ELBO-YSRCbDHrIFLko&__tn__=%2CO%2CP-R"
-        : window.location.href;
 
+    // URL để phân biệt comment và share plugin cho từng bác sĩ
     let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
-
-    // let currentURL =
-    //   process.env.REACT_APP_IS_LOCALHOST === "1"
-    //     ? "https://eric-restaurant-bot-tv.herokuapp.com/"
-    //     : window.location.href;
 
     return (
       <LoadingOverlay
@@ -73,6 +69,7 @@ class DetailDoctor extends Component {
         text="Loading..."
       >
         <HomeHeader isShowBanner={false} />
+
         <div className="doctor-detail-container container">
           <div className="intro-doctor">
             <div
@@ -83,6 +80,7 @@ class DetailDoctor extends Component {
                 })`,
               }}
             ></div>
+
             <div className="content-right">
               <div className="up">
                 {language === LANGUAGES.VI ? nameVi : nameEn}
@@ -99,6 +97,7 @@ class DetailDoctor extends Component {
               </div>
             </div>
           </div>
+
           <div className="schedule-doctor">
             <div className="content-left">
               <DoctorSchedule doctorIdFromParent={this.state.currentDoctorId} />
@@ -109,6 +108,7 @@ class DetailDoctor extends Component {
               />
             </div>
           </div>
+
           <div className="detail-infor-doctor">
             {detailDoctor &&
               detailDoctor.Markdown &&
@@ -120,12 +120,12 @@ class DetailDoctor extends Component {
                 ></div>
               )}
           </div>
+
           <div className="comment-doctor">
-            <div className="comment-doctor">
-              <Comment numPost={5} dataHref={currentURL1} width={"100%"} />
-            </div>
+            <Comment numPost={5} dataHref={currentURL} width={"100%"} />
           </div>
         </div>
+
         <HomeFooter />
       </LoadingOverlay>
     );
