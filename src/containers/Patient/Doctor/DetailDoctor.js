@@ -61,7 +61,7 @@ class DetailDoctor extends Component {
 
     // URL để phân biệt comment và share plugin cho từng bác sĩ
     // let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
-    let currentURL = `${window.location.origin}/detail-doctor?id=${this.state.currentDoctorId}`;
+    let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
 
     return (
       <LoadingOverlay
