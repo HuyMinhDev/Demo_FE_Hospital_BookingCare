@@ -26,15 +26,7 @@ class SpecialtyList extends Component {
   componentWillUnmount() {
     clearInterval(this.timer);
   }
-  // hexToUtf8 = (hex) => {
-  //   if (!hex) return "";
-  //   hex = hex.startsWith("0x") ? hex.slice(2) : hex;
-  //   let str = "";
-  //   for (let i = 0; i < hex.length; i += 2) {
-  //     str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
-  //   }
-  //   return str;
-  // };
+
   animateItems = (data) => {
     let index = 0;
     this.timer = setInterval(() => {
@@ -49,8 +41,13 @@ class SpecialtyList extends Component {
     }, 150);
   };
 
-  handleClick = (id) => {
-    this.props.history.push(`/detail-specialty/${id}`);
+  handleClick = (id, type) => {
+    let path = "/";
+    if (type === "specialty") path = `/detail-specialty/${id}`;
+    else if (type === "doctor") path = `/detail-doctor/${id}`;
+    else if (type === "clinic") path = `/detail-clinic/${id}`;
+
+    this.props.history.push(path);
   };
 
   render() {
@@ -69,16 +66,36 @@ class SpecialtyList extends Component {
         {isDataEmpty ? (
           <div className="title-item text-muted">Không có kết quả...</div>
         ) : (
-          visibleItems.map((item, i) => (
-            <div
-              key={i}
-              className="search-list-item d-flex align-items-center gap-3"
-              onClick={() => this.handleClick(item.id)}
-            >
-              {item.image && <img src={item.image} alt={item.name} />}
-              <span>{item.name}</span>
-            </div>
-          ))
+          visibleItems.map((item, i) => {
+            let typeLabel = "";
+            if (item.type === "doctor") typeLabel = "[Bác sĩ]";
+            else if (item.type === "clinic") typeLabel = "[Phòng khám]";
+            else if (item.type === "specialty") typeLabel = "[Chuyên khoa]";
+
+            return (
+              <div
+                key={i}
+                className="search-list-item d-flex align-items-center gap-3"
+                onClick={() => this.handleClick(item.id, item.type)}
+              >
+                {item.image && (
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    style={{
+                      width: 40,
+                      height: 40,
+                      objectFit: "cover",
+                      borderRadius: 4,
+                    }}
+                  />
+                )}
+                <span>
+                  {typeLabel} {item.name}
+                </span>
+              </div>
+            );
+          })
         )}
       </div>
     );

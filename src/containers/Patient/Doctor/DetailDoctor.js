@@ -8,17 +8,20 @@ import DoctorSchedule from "./DoctorSchedule";
 import DoctorExtraInfor from "./DoctorExtraInfor";
 import LikeAndShare from "../socialPlugin/LikeAndShare";
 import Comment from "../socialPlugin/Comment";
-
+import LoadingOverlay from "react-loading-overlay";
+import HomeFooter from "../../HomePage/HomeFooter";
 class DetailDoctor extends Component {
   constructor(props) {
     super(props);
     this.state = {
       detailDoctor: {},
       currentDoctorId: -1,
+      isShowLoading: false,
     };
   }
 
   async componentDidMount() {
+    this.setState({ isShowLoading: true });
     if (
       this.props.match &&
       this.props.match.params &&
@@ -33,9 +36,11 @@ class DetailDoctor extends Component {
       if (res && res.errCode === 0) {
         this.setState({
           detailDoctor: res.data,
+          isShowLoading: false,
         });
       } else {
         console.error("Failed to fetch doctor detail", res);
+        this.setState({ isShowLoading: false });
       }
     }
   }
@@ -49,12 +54,12 @@ class DetailDoctor extends Component {
       nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.lastName} ${detailDoctor.firstName} `;
       nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.firstName} ${detailDoctor.lastName}`;
     }
-    let currentURL =
+    let currentURL1 =
       process.env.REACT_APP_IS_LOCALHOST === "1"
         ? "https://www.facebook.com/permalink.php?story_fbid=pfbid0Y47aFGTS9q8AMKSF45kWNZezoMid26DtK3DZhgvRJFR1BHH747TK9zLAmhirfLcMl&id=61557876208398&__cft__[0]=AZXidQRNaJwmjV5VlZyG4R3VkoUqWVYr25NspR4UXHTsAmdktObppmiD_5oZxldnqneiiXyW4-gDsnPb0FRGr6hM5JxPx8dPOdjPhJDPA1r0H5xreTVBd7CBvbAhlm_16c_OlfG9QfYx1w7nkd6teKl4Z6M5EAaqqZ-jimi9pnlvaAT7eJJ8Z_vRjlsadCcqLfUkzvB4GufYaH5U3l5Y_zY2ae3rWClK0ubQeHIA9DdiW85V1ELBO-YSRCbDHrIFLko&__tn__=%2CO%2CP-R"
         : window.location.href;
 
-    // let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
+    let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
 
     // let currentURL =
     //   process.env.REACT_APP_IS_LOCALHOST === "1"
@@ -62,7 +67,11 @@ class DetailDoctor extends Component {
     //     : window.location.href;
 
     return (
-      <>
+      <LoadingOverlay
+        active={this.state.isShowLoading}
+        spinner
+        text="Loading..."
+      >
         <HomeHeader isShowBanner={false} />
         <div className="doctor-detail-container container">
           <div className="intro-doctor">
@@ -113,11 +122,12 @@ class DetailDoctor extends Component {
           </div>
           <div className="comment-doctor">
             <div className="comment-doctor">
-              <Comment numPost={5} dataHref={currentURL} width={"100%"} />
+              <Comment numPost={5} dataHref={currentURL1} width={"100%"} />
             </div>
           </div>
         </div>
-      </>
+        <HomeFooter />
+      </LoadingOverlay>
     );
   }
 }

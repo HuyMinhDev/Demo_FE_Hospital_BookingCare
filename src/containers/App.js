@@ -27,6 +27,7 @@ import ListAllSpecialty from "./Patient/Specialty/ListAllSpecialty.js";
 import ListAllClinic from "./Patient/Clinic/ListAllClinic.js";
 import DetailHandbook from "./Patient/Handbook/DetailHandbook.js";
 import ListAllHandbook from "./Patient/Handbook/ListAllHandbook.js";
+import BackToTop from "../components/BackToTop.js";
 class App extends Component {
   handlePersistorState = () => {
     const { persistor } = this.props;
@@ -52,7 +53,10 @@ class App extends Component {
         <Router history={history}>
           <div className="main-container">
             <div className="content-container">
-              <CustomScrollbars style={{ height: "100vh", width: "100%" }}>
+              <CustomScrollbars
+                style={{ height: "100vh", width: "100%" }}
+                className="scroll-container"
+              >
                 <Switch>
                   <Route path={path.HOME} exact component={Home} />
                   <Route
@@ -107,6 +111,7 @@ class App extends Component {
               draggable
               pauseOnHover
             />
+            <BackToTop />
           </div>
         </Router>
       </Fragment>
