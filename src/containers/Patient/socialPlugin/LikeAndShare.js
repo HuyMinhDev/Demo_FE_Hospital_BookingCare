@@ -11,11 +11,17 @@ class LikeAndShare extends Component {
   }
 
   async componentDidMount() {
-    this.initFacebookSDK();
+    // this.initFacebookSDK();
   }
 
-  async componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.language !== prevProps.language) {
+  async componentDidUpdate(prevProps) {
+    if (
+      this.props.language !== prevProps.language ||
+      this.props.dataHref !== prevProps.dataHref
+    ) {
+      if (window.FB) {
+        window.FB.XFBML.parse();
+      }
     }
   }
 
@@ -51,6 +57,7 @@ class LikeAndShare extends Component {
     return (
       <>
         <div
+          key={dataHref}
           className="fb-like"
           data-href={dataHref}
           data-width=""

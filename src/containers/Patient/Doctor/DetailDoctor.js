@@ -29,6 +29,7 @@ class DetailDoctor extends Component {
       this.props.match.params.id
     ) {
       let id = this.props.match.params.id;
+      console.log(">>>Check params id: ", id);
       this.setState({
         currentDoctorId: id,
       });
@@ -59,8 +60,6 @@ class DetailDoctor extends Component {
       nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.firstName} ${detailDoctor.lastName}`;
     }
 
-    // URL để phân biệt comment và share plugin cho từng bác sĩ
-    // let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
     let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
 
     return (
