@@ -11,7 +11,7 @@ class LikeAndShare extends Component {
   }
 
   async componentDidMount() {
-    // this.initFacebookSDK();
+    this.initFacebookSDK();
   }
 
   async componentDidUpdate(prevProps) {
@@ -34,7 +34,7 @@ class LikeAndShare extends Component {
     let locale = language === LANGUAGES.VI ? "vi_VN" : "en_US";
     window.fbAsyncInit = function () {
       window.FB.init({
-        appId: process.env.REACT_APP_FACEBOOK_APP_ID,
+        appId: 1173358894531927,
         cookie: true, // enable cookies to allow the server to access
         // the session
         xfbml: true, // parse social plugins on this page
