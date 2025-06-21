@@ -54,6 +54,7 @@ class LikeAndShare extends Component {
   // }
   render() {
     let { dataHref } = this.props;
+    console.log("Check dataHref: ", dataHref);
     return (
       <>
         <div
