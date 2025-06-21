@@ -10,7 +10,7 @@ import LikeAndShare from "../socialPlugin/LikeAndShare";
 import Comment from "../socialPlugin/Comment";
 import LoadingOverlay from "react-loading-overlay";
 import HomeFooter from "../../HomePage/HomeFooter";
-
+import { Helmet } from "react-helmet";
 class DetailDoctor extends Component {
   constructor(props) {
     super(props);
@@ -66,6 +66,25 @@ class DetailDoctor extends Component {
         ? "https://demo-fe-hospital-booking-care.vercel.app/home"
         : window.location.origin
     }/detail-doctor/${this.state.currentDoctorId}`;
+    <Helmet>
+      <meta
+        property="og:title"
+        content={language === LANGUAGES.VI ? nameVi : nameEn}
+      />
+      <meta
+        property="og:description"
+        content={detailDoctor?.Markdown?.description || "Thông tin bác sĩ"}
+      />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={currentURL} />
+      <meta
+        property="og:image"
+        content={
+          detailDoctor?.image ||
+          "https://demo-fe-hospital-booking-care.vercel.app/default-doctor.jpg"
+        }
+      />
+    </Helmet>;
     return (
       <LoadingOverlay
         active={this.state.isShowLoading}
