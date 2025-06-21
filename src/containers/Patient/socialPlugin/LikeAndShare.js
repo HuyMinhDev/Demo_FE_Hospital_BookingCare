@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+// import "./LikeAndShare.scss";
+import { LANGUAGES } from "../../../utils";
+import { FormattedMessage } from "react-intl";
 
 class LikeAndShare extends Component {
   constructor(props) {
@@ -7,30 +10,52 @@ class LikeAndShare extends Component {
     this.state = {};
   }
 
-  // SDK đã được tải trong index.html, nên chúng ta không cần initFacebookSDK ở đây.
-  // Chúng ta chỉ cần đảm bảo Facebook parse lại component khi URL thay đổi.
-
-  componentDidMount() {
-    // Đảm bảo SDK đã tải xong trước khi cố gắng parse
-    if (window.FB) {
-      window.FB.XFBML.parse();
-    }
+  async componentDidMount() {
+    // this.initFacebookSDK();
   }
 
-  componentDidUpdate(prevProps) {
-    // Nếu URL (dataHref) thay đổi, bảo Facebook quét lại trang để tìm plugin mới.
-    if (this.props.dataHref !== prevProps.dataHref) {
+  async componentDidUpdate(prevProps) {
+    if (
+      this.props.language !== prevProps.language ||
+      this.props.dataHref !== prevProps.dataHref
+    ) {
       if (window.FB) {
         window.FB.XFBML.parse();
       }
     }
   }
 
+  initFacebookSDK() {
+    if (window.FB) {
+      window.FB.XFBML.parse();
+    }
+
+    let { language } = this.props;
+    let locale = language === LANGUAGES.VI ? "vi_VN" : "en_US";
+    window.fbAsyncInit = function () {
+      window.FB.init({
+        appId: process.env.REACT_APP_FACEBOOK_APP_ID,
+        cookie: true, // enable cookies to allow the server to access
+        // the session
+        xfbml: true, // parse social plugins on this page
+        version: "v2.5", // use version 2.1
+      });
+    };
+    // Load the SDK asynchronously
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = `//connect.facebook.net/${locale}/sdk.js`;
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
+  }
   render() {
-    const { dataHref } = this.props;
+    let { dataHref } = this.props;
     return (
       <>
-        {/* Dùng key={dataHref} là một thói quen rất tốt! Nó buộc React render lại. */}
         <div
           key={dataHref}
           className="fb-like"
@@ -52,4 +77,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(LikeAndShare);
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LikeAndShare);
