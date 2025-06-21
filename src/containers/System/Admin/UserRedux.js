@@ -246,7 +246,9 @@ class UserRedux extends Component {
 
     return (
       <div className="user-redux-container">
-        <div className="title">User Redux Huy</div>
+        <div className="title">
+          <FormattedMessage id="manage-user.user" />
+        </div>
 
         <div className="text-redux-body">
           <div className="container">

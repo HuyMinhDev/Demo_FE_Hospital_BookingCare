@@ -48,6 +48,7 @@
     }
   },
   "manage-user": {
+    "user": "User management",
     "add": "Add a new user",
     "email": "Email",
     "password": "Password",

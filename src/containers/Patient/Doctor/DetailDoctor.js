@@ -60,8 +60,12 @@ class DetailDoctor extends Component {
       nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.firstName} ${detailDoctor.lastName}`;
     }
 
-    let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
-
+    // let currentURL = `${window.location.origin}/detail-doctor/${this.state.currentDoctorId}`;
+    let currentURL = `${
+      process.env.REACT_APP_FACEBOOK_APP_ID === "1"
+        ? "https://demo-fe-hospital-booking-care.vercel.app/home"
+        : window.location.origin
+    }/detail-doctor/${this.state.currentDoctorId}`;
     return (
       <LoadingOverlay
         active={this.state.isShowLoading}

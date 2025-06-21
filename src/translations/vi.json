@@ -48,6 +48,7 @@
     }
   },
   "manage-user": {
+    "user": "Quản lý user",
     "add": "Thêm mới người dùng",
     "email": "Email",
     "password": "Mật khẩu",
