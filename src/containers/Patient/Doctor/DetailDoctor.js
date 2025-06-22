@@ -68,23 +68,11 @@ class DetailDoctor extends Component {
     }/detail-doctor/${this.state.currentDoctorId}`;
     <Helmet>
       <meta
-        property="og:title"
-        content={language === LANGUAGES.VI ? nameVi : nameEn}
-      />
-      <meta
-        property="og:description"
-        content={detailDoctor?.Markdown?.description || "Thông tin bác sĩ"}
-      />
-      <meta property="og:type" content="article" />
-      <meta property="og:url" content={currentURL} />
-      <meta
-        property="og:image"
-        content={
-          detailDoctor?.image ||
-          "https://demo-fe-hospital-booking-care.vercel.app/default-doctor.jpg"
-        }
+        property="og:url"
+        content={`https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/${this.state.currentDoctorId}`}
       />
     </Helmet>;
+
     return (
       <LoadingOverlay
         active={this.state.isShowLoading}
