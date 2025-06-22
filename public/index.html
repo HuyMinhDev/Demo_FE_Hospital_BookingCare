@@ -10,6 +10,10 @@
       property="og:description"
       content="Thông tin bác sĩ, lịch khám và địa chỉ đặt lịch."
     />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/demo/image/upload/sample.jpg"
+    />
 
     <meta
       property="og:url"
@@ -38,6 +42,14 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>HoiDanIT React App</title>
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v23.0&appId=1173358894531927"
+    ></script>
   </head>
 
   <body>
@@ -54,12 +66,13 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <!-- Add this script -->
-    <div id="fb-root"></div>
+
+    <!-- <div id="fb-root"></div>
     <script
       async
       defer
       crossorigin="anonymous"
       src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v23.0&appId=1173358894531927"
-    ></script>
+    ></script> -->
   </body>
 </html>

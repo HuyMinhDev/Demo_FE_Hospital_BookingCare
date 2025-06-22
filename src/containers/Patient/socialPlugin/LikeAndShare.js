@@ -1,97 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import "./LikeAndShare.scss";
 import { LANGUAGES } from "../../../utils";
-import { FormattedMessage } from "react-intl";
 
 class LikeAndShare extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  componentDidMount() {
+    this.parseFacebookPlugin();
   }
 
-  async componentDidMount() {
-    this.initFacebookSDK();
-  }
-
-  async componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     if (
       this.props.language !== prevProps.language ||
       this.props.dataHref !== prevProps.dataHref
     ) {
-      if (window.FB) {
-        window.FB.XFBML.parse();
-      }
+      this.parseFacebookPlugin();
     }
   }
 
-  initFacebookSDK() {
+  parseFacebookPlugin = () => {
     if (window.FB) {
       window.FB.XFBML.parse();
     }
+  };
 
-    let { language } = this.props;
-    let locale = language === LANGUAGES.VI ? "vi_VN" : "en_US";
-    window.fbAsyncInit = function () {
-      window.FB.init({
-        appId: process.env.REACT_APP_FACEBOOK_APP_ID,
-        cookie: true, // enable cookies to allow the server to access
-        // the session
-        xfbml: true, // parse social plugins on this page
-        version: "v2.5", // use version 2.1
-      });
-    };
-    console.log(
-      "Check process.env.REACT_APP_FACEBOOK_APP_ID: ",
-      process.env.REACT_APP_FACEBOOK_APP_ID
-    )(
-      // Load the SDK asynchronously
-      function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = `//connect.facebook.net/${locale}/sdk.js`;
-        fjs.parentNode.insertBefore(js, fjs);
-      }
-    )(document, "script", "facebook-jssdk");
-  }
   render() {
-    let { dataHref } = this.props;
-    console.log("Check dataHref: ", dataHref);
+    const { dataHref } = this.props;
+    console.log("Check dataHref new: ", dataHref);
     return (
-      <>
-        {/* <div
-          key={dataHref}
-          className="fb-like"
-          data-href={dataHref}
-          data-width=""
-          data-layout="standard"
-          data-action="like"
-          data-size="small"
-          data-share="true"
-        ></div> */}
-        {/* <div
-          class="fb-like"
-          data-href="https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/22"
-          data-width=""
-          data-layout=""
-          data-action=""
-          data-size=""
-          data-share="true"
-        ></div> */}
-        <div
-          key="https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/22"
-          class="fb-like"
-          data-href="https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/22"
-          data-width=""
-          data-layout="button_count"
-          data-action="like"
-          data-size="small"
-          data-share="true"
-        ></div>
-      </>
+      <div
+        className="fb-like"
+        data-href={dataHref}
+        data-width=""
+        data-layout="button_count"
+        data-action="like"
+        data-size="small"
+        data-share="true"
+        data-lazy="false"
+      ></div>
     );
   }
 }
@@ -102,8 +46,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(LikeAndShare);
+export default connect(mapStateToProps)(LikeAndShare);
