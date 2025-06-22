@@ -66,12 +66,6 @@ class DetailDoctor extends Component {
         ? "https://demo-fe-hospital-booking-care.vercel.app/home"
         : window.location.origin
     }/detail-doctor/${this.state.currentDoctorId}`;
-    <Helmet>
-      <meta
-        property="og:url"
-        content={`https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/${this.state.currentDoctorId}`}
-      />
-    </Helmet>;
 
     return (
       <LoadingOverlay
@@ -79,6 +73,27 @@ class DetailDoctor extends Component {
         spinner
         text="Loading..."
       >
+        <Helmet>
+          <meta
+            property="og:title"
+            content={language === LANGUAGES.VI ? nameVi : nameEn}
+          />
+          <meta
+            property="og:description"
+            content={detailDoctor?.Markdown?.description || "Thông tin bác sĩ"}
+          />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={currentURL} />
+          <meta
+            property="og:image"
+            content={
+              detailDoctor?.image ||
+              "https://demo-fe-hospital-booking-care.vercel.app/default-doctor.jpg"
+            }
+          />
+          <meta property="fb:app_id" content="1173358894531927" />
+        </Helmet>
+
         <HomeHeader isShowBanner={false} />
 
         <div className="doctor-detail-container container">
