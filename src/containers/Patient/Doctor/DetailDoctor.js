@@ -84,10 +84,7 @@ class DetailDoctor extends Component {
           />
           <meta property="og:type" content="article" />
           <meta property="og:url" content={currentURL} />
-          <meta
-            property="og:image"
-            content="https://static.vecteezy.com/system/resources/thumbnails/036/372/442/small_2x/hospital-building-with-ambulance-emergency-car-on-cityscape-background-cartoon-illustration-vector.jpg"
-          />
+
           <meta property="fb:app_id" content="1173358894531927" />
         </Helmet>
 
