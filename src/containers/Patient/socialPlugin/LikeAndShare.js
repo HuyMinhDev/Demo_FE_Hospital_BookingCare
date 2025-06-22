@@ -35,6 +35,7 @@ class LikeAndShare extends Component {
         data-size="small"
         data-share="true"
         data-lazy="false"
+        data-ref={dataHref}
       ></div>
     );
   }
