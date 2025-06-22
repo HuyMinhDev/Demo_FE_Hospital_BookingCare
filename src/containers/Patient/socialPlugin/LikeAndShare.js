@@ -82,12 +82,13 @@ class LikeAndShare extends Component {
           data-share="true"
         ></div> */}
         <div
+          key="https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/22"
           class="fb-like"
           data-href="https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/22"
           data-width=""
-          data-layout=""
-          data-action=""
-          data-size=""
+          data-layout="button_count"
+          data-action="like"
+          data-size="small"
           data-share="true"
         ></div>
       </>
