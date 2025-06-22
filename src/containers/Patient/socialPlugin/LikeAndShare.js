@@ -62,7 +62,7 @@ class LikeAndShare extends Component {
     console.log("Check dataHref: ", dataHref);
     return (
       <>
-        <div
+        {/* <div
           key={dataHref}
           className="fb-like"
           data-href={dataHref}
@@ -70,6 +70,15 @@ class LikeAndShare extends Component {
           data-layout="standard"
           data-action="like"
           data-size="small"
+          data-share="true"
+        ></div> */}
+        <div
+          class="fb-like"
+          data-href="https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/22"
+          data-width=""
+          data-layout=""
+          data-action=""
+          data-size=""
           data-share="true"
         ></div>
       </>
