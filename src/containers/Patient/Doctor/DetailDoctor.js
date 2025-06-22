@@ -73,7 +73,7 @@ class DetailDoctor extends Component {
         spinner
         text="Loading..."
       >
-        <Helmet>
+        {/* <Helmet>
           <meta
             property="og:title"
             content={language === LANGUAGES.VI ? nameVi : nameEn}
@@ -86,7 +86,7 @@ class DetailDoctor extends Component {
           <meta property="og:url" content={currentURL} />
 
           <meta property="fb:app_id" content="1173358894531927" />
-        </Helmet>
+        </Helmet> */}
 
         <HomeHeader isShowBanner={false} />
 
