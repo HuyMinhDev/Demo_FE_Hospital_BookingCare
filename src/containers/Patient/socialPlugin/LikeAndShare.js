@@ -72,6 +72,15 @@ class LikeAndShare extends Component {
           data-size="small"
           data-share="true"
         ></div> */}
+        {/* <div
+          class="fb-like"
+          data-href="https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/22"
+          data-width=""
+          data-layout=""
+          data-action=""
+          data-size=""
+          data-share="true"
+        ></div> */}
         <div
           class="fb-like"
           data-href="https://demo-fe-hospital-booking-care.vercel.app/detail-doctor/22"
