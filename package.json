@@ -65,6 +65,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.22.0"
+    "@babel/core": "^7.22.0",
+    "babel-preset-react-app": "^10.1.0"
   }
 }
