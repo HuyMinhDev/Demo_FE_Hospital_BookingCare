@@ -10,7 +10,7 @@ import LikeAndShare from "../socialPlugin/LikeAndShare";
 import Comment from "../socialPlugin/Comment";
 import LoadingOverlay from "react-loading-overlay";
 import HomeFooter from "../../HomePage/HomeFooter";
-import { Helmet } from "react-helmet";
+
 class DetailDoctor extends Component {
   constructor(props) {
     super(props);
@@ -73,21 +73,6 @@ class DetailDoctor extends Component {
         spinner
         text="Loading..."
       >
-        {/* <Helmet>
-          <meta
-            property="og:title"
-            content={language === LANGUAGES.VI ? nameVi : nameEn}
-          />
-          <meta
-            property="og:description"
-            content={detailDoctor?.Markdown?.description || "Thông tin bác sĩ"}
-          />
-          <meta property="og:type" content="article" />
-          <meta property="og:url" content={currentURL} />
-
-          <meta property="fb:app_id" content="1173358894531927" />
-        </Helmet> */}
-
         <HomeHeader isShowBanner={false} />
 
         <div className="doctor-detail-container container">

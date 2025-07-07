@@ -32,7 +32,53 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <style>
+      .messenger-floating-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          45deg,
+          #0084ff,
+          #0099ff,
+          #00ccff,
+          #3a8fff,
+          #006eff
+        );
+        background-size: 300% 300%;
+        animation: gradientShift 5s ease infinite;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        transition: transform 0.2s ease;
+      }
 
+      .messenger-floating-button:hover {
+        transform: scale(1.1);
+      }
+
+      .messenger-floating-button img {
+        width: 28px;
+        height: 28px;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
     <title>BookingCare - Đặt lịch khám</title>
 
     <!-- Facebook SDK -->
@@ -41,12 +87,46 @@
       async
       defer
       crossorigin="anonymous"
-      src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v23.0&appId=1173358894531927"
+      src="https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js"
     ></script>
   </head>
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <a
+      href="https://www.messenger.com/t/61577828784367/"
+      target="_blank"
+      class="messenger-floating-button"
+      aria-label="Chat qua Messenger"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/1200px-Facebook_Messenger_logo_2020.svg.png"
+        alt="Messenger Icon"
+      />
+    </a>
+
+    <script>
+      // Hiện nút khi cuộn xuống 200px
+      window.onscroll = function () {
+        const btn = document.getElementById("backToTopBtn");
+        if (
+          document.body.scrollTop > 200 ||
+          document.documentElement.scrollTop > 200
+        ) {
+          btn.style.display = "block";
+        } else {
+          btn.style.display = "none";
+        }
+      };
+
+      // Cuộn mượt lên đầu trang
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+    </script>
   </body>
 </html>

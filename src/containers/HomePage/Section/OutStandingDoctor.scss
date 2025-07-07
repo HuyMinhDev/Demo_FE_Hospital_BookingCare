@@ -14,6 +14,9 @@ div._loading_overlay_wrapper {
     gap: 5px;
     .name-doctor {
       font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       @media screen and (max-width: 1200px) {
         font-size: 15px;
       }
@@ -37,6 +40,9 @@ div._loading_overlay_wrapper {
       }
     }
     .name-specialty {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       @media screen and (max-width: 1200px) {
         font-size: 12px;
       }

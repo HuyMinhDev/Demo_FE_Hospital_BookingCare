@@ -17,6 +17,13 @@
         font-size: 1.5rem;
         font-weight: 600;
       }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+        border-radius: 6px;
+      }
     }
   }
   .bg-body-detail {
@@ -93,6 +100,108 @@
           .doctor-extra-infor-container {
             padding: 0;
           }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .detail-specialty-container {
+    .bg-description {
+      padding: 15px 10px;
+
+      .description-specialty {
+        padding: 10px;
+
+        h1 {
+          font-size: 1.6rem;
+        }
+
+        h2 {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .bg-body-detail {
+      padding: 0 10px 10px 10px;
+
+      .each-doctor {
+        flex-direction: column;
+
+        .dt-content-left,
+        .dt-content-right {
+          width: 100%;
+          border-right: none;
+          padding: 10px 0;
+        }
+
+        .dt-content-right {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .detail-specialty-container {
+    .bg-description {
+      padding: 10px 5px;
+
+      .description-specialty {
+        padding: 8px;
+
+        h1 {
+          font-size: 1.4rem;
+        }
+
+        h2 {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .bg-body-detail {
+      padding: 0 5px 10px 5px;
+
+      .search-sp-doctor {
+        max-width: 100%;
+      }
+
+      .each-doctor {
+        padding: 8px;
+
+        .dt-content-left,
+        .dt-content-right {
+          padding: 8px 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .detail-specialty-container {
+    .bg-description {
+      .description-specialty {
+        h1 {
+          font-size: 1.2rem;
+        }
+
+        h2 {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .bg-body-detail {
+      .each-doctor {
+        padding: 5px;
+
+        .dt-content-left,
+        .dt-content-right {
+          padding: 6px 0;
         }
       }
     }

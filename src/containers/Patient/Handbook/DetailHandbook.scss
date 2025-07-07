@@ -155,3 +155,126 @@
     }
   }
 }
+@media screen and (max-width: 1024px) {
+  .detail-handbook-container {
+    .bg-description {
+      padding: 15px 10px;
+
+      .description-handbook {
+        padding: 8px;
+
+        .handbook-header {
+          .handbook-img img {
+            height: 400px;
+          }
+
+          .handbook-titlename {
+            padding: 15px 60px;
+
+            h2 {
+              font-size: 1.3rem;
+            }
+          }
+        }
+
+        h1 {
+          font-size: 1.2rem;
+        }
+
+        h2 {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .bg-body-detail {
+      .each-doctor {
+        flex-direction: column;
+
+        .dt-content-left,
+        .dt-content-right {
+          width: 100%;
+          border-right: none;
+          padding: 10px 0;
+        }
+
+        .dt-content-right {
+          padding: 10px 0 0 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .detail-handbook-container {
+    .bg-description {
+      .description-handbook {
+        .handbook-header {
+          .handbook-img img {
+            height: 300px;
+          }
+
+          .handbook-titlename {
+            padding: 10px 30px;
+
+            h2 {
+              font-size: 1.1rem;
+            }
+          }
+        }
+
+        h1 {
+          font-size: 1rem;
+        }
+
+        h2 {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .bg-body-detail {
+      .search-sp-doctor {
+        max-width: 100%;
+      }
+
+      .each-doctor {
+        .dt-content-left,
+        .dt-content-right {
+          padding: 10px 5px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .detail-handbook-container {
+    .bg-description {
+      padding: 10px 5px;
+
+      .description-handbook {
+        padding: 6px;
+
+        .handbook-header {
+          .handbook-img img {
+            height: 200px;
+          }
+
+          .handbook-titlename {
+            padding: 8px 20px;
+
+            h2 {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    .bg-body-detail {
+      padding: 0 5px 10px 5px;
+    }
+  }
+}

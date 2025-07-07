@@ -7,7 +7,6 @@ import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 import IntlProviderWrapper from "./hoc/IntlProviderWrapper";
 
-import { HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
 import reduxStore, { persistor } from "./redux";
 
@@ -15,9 +14,7 @@ const renderApp = () => {
   ReactDOM.render(
     <Provider store={reduxStore}>
       <IntlProviderWrapper>
-        <HelmetProvider>
-          <App persistor={persistor} />
-        </HelmetProvider>
+        <App persistor={persistor} />
       </IntlProviderWrapper>
     </Provider>,
     document.getElementById("root")

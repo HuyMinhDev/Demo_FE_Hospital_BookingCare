@@ -9,14 +9,6 @@ import { LANGUAGES } from "../../../utils";
 import { withRouter } from "react-router-dom/cjs/react-router-dom";
 import LoadingOverlay from "react-loading-overlay";
 
-const convertBufferToBase64 = (bufferData) => {
-  const typedArray = new Uint8Array(bufferData); // chuyển thành Uint8Array
-  let binaryString = "";
-  for (let i = 0; i < typedArray.length; i++) {
-    binaryString += String.fromCharCode(typedArray[i]);
-  }
-  return window.btoa(binaryString); // encode base64
-};
 class OutStandingDoctor extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +47,7 @@ class OutStandingDoctor extends Component {
     console.log(">>>>>Check this.state: ", this.state);
     console.log(">>>>>Check arrDoctors: ", arrDoctors);
     let { language } = this.props;
-    // arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors);
+
     console.log("check arrDoctors: ", arrDoctors);
     return (
       <LoadingOverlay
@@ -92,12 +84,7 @@ class OutStandingDoctor extends Component {
                           "binary"
                         );
                       }
-                      // let imageBase64 = "";
-                      // if (item.image && item.image.data) {
-                      //   imageBase64 = `data:image/jpeg;base64,${convertBufferToBase64(
-                      //     item.image.data
-                      //   )}`;
-                      // }
+
                       let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName} `;
                       let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
                       return (
