@@ -63,6 +63,7 @@ class DetailHandbook extends Component {
   render() {
     let { arrDoctorId, dataDetailHandbook } = this.state;
     let { language } = this.props;
+    console.log("Check dataDetailHandbook: ", dataDetailHandbook);
     return (
       <LoadingOverlay
         active={this.state.isShowLoading}

@@ -72,6 +72,17 @@ class HomeFooter extends Component {
             <Link to="/home">MinhHuy</Link>
           </div>
         </div>
+        <a
+          href="https://www.messenger.com/t/61577828784367/"
+          target="_blank"
+          class="messenger-floating-button"
+          aria-label="Chat qua Messenger"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/1200px-Facebook_Messenger_logo_2020.svg.png"
+            alt="Messenger Icon"
+          />
+        </a>
       </footer>
     );
   }
